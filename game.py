@@ -122,17 +122,19 @@ def draw(win, side, rows, has_border, grid):
                     'fg'), (x * gap, y * gap, gap, gap))
 
     # grid
-    for i in range(rows):
-        pygame.draw.line(win, colors.get('bo'), (0, i * gap), (side, i * gap))
-        for j in range(rows):
+    if has_border:
+        for i in range(rows):
             pygame.draw.line(win, colors.get(
-                'bo'), (j * gap, 0), (j * gap, side))
+                'bo'), (0, i * gap), (side, i * gap))
+            for j in range(rows):
+                pygame.draw.line(win, colors.get(
+                    'bo'), (j * gap, 0), (j * gap, side))
 
     # update
     pygame.display.update()
 
 
-def start(side, rows, tps, has_border=False):
+def start(side, rows, tps, has_border):
     win = pygame.display.set_mode((side, side))
     pygame.display.set_caption("Conway's Game of Life")
     clock = pygame.time.Clock()
