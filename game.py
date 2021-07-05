@@ -136,12 +136,16 @@ def draw(win, side, rows, has_border, grid):
 
 def start(side, rows, tps, has_border):
     win = pygame.display.set_mode((side, side))
-    pygame.display.set_caption("Conway's Game of Life")
-    clock = pygame.time.Clock()
+    title = "Conway's Game of Life"
+    title_running = ""
+    pygame.display.set_caption(
+        title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
+
     grid = new_grid(rows)
     neighbormap = []
     gap = side // rows
 
+    clock = pygame.time.Clock()
     running = True
     simulating = False
     while running:
@@ -171,24 +175,37 @@ def start(side, rows, tps, has_border):
                 if event.key == pygame.K_SPACE:
                     if simulating:
                         simulating = False
+                        # pygame.display.set_caption(
+                        #     "Conway's Game of Life (Paused)")
+                        title_running = "(Paused)"
                         pygame.display.set_caption(
-                            "Conway's Game of Life - (Paused)")
+                            title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
                     else:
                         simulating = True
+                        # pygame.display.set_caption(
+                        #     "Conway's Game of Life (Running)")
+                        title_running = "(Running)"
                         pygame.display.set_caption(
-                            "Conway's Game of Life - (Running)")
+                            title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
 
                 if event.key == pygame.K_c:
                     simulating = False
                     grid = new_grid(rows)
+                    # pygame.display.set_caption(
+                    #     "Conway's Game of Life (Stopped)")
+                    title_running = "(Stopped)"
                     pygame.display.set_caption(
-                        "Conway's Game of Life - (Stopped)")
+                        title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
                 elif (event.key == pygame.K_RIGHT) and not simulating:
                     move(grid)
                 elif event.key == pygame.K_UP:
                     tps += 1
+                    pygame.display.set_caption(
+                        title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
                 elif (event.key == pygame.K_DOWN) and (tps > 0):
                     tps -= 1
+                    pygame.display.set_caption(
+                        title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
 
         # moves
         if simulating:
