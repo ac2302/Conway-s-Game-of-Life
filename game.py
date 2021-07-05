@@ -134,7 +134,7 @@ def draw(win, side, rows, has_border, grid):
     pygame.display.update()
 
 
-def start(side, rows, tps, has_border):
+def start(side, rows, tps=5, has_border="true", default_theme="nokia"):
     global colors
 
     win = pygame.display.set_mode((side, side))
