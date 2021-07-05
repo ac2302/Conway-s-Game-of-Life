@@ -196,6 +196,8 @@ def start(side, rows, tps, has_border):
                     title_running = "(Stopped)"
                     pygame.display.set_caption(
                         title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
+                elif event.key == pygame.K_b:
+                    has_border = not has_border
                 elif (event.key == pygame.K_RIGHT) and not simulating:
                     move(grid)
                 elif event.key == pygame.K_UP:
