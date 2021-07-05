@@ -2,12 +2,21 @@ import pygame
 
 pygame.init()
 
-colors = {'fg': (0, 0, 0),
-          'bg': (50, 100, 50),
-          'bo': (50, 100, 50)}
-# colors = {'fg': (0, 0, 0),
-#           'bg': (255, 255, 255),
-#           'bo': (0, 0, 0)}
+
+themes = {
+    "nokia": {
+        'fg': (0, 0, 0),
+        'bg': (50, 100, 50),
+        'bo': (50, 100, 50)
+    },
+    "graph": {
+        'fg': (0, 0, 0),
+        'bg': (255, 255, 255),
+        'bo': (0, 0, 0)
+    }
+}
+
+colors = themes['nokia']
 
 
 def new_grid(rows):
