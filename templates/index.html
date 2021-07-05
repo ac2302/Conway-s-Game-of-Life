@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Conway's Game Of Life Launcher</title>
+		<!-- google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- css -->
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: #f2f3d9;
+				color: #303036;
+				font-family: "Fira Sans", sans-serif;
+				display: grid;
+				place-items: center;
+			}
+
+			h1 {
+				margin: 50px;
+				text-align: center;
+			}
+
+			h2 {
+				text-align: center;
+			}
+
+			form {
+				border: 1px solid #303036;
+				background-color: #9cadce;
+				padding: 20px;
+				border-radius: 50px;
+				width: 1000px;
+				text-align: center;
+			}
+
+			section {
+				margin-top: 40px;
+				border: 1px solid #303036;
+				background-color: #9cadce;
+				padding: 20px 100px;
+				border-radius: 50px;
+				width: 1000px;
+				text-align: left;
+			}
+
+			input {
+				border-color: #303036;
+				border-style: inset;
+				margin: 30px;
+				padding: 5px;
+				border-radius: 10px;
+				font-size: 30px;
+			}
+
+			li {
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Conway's Game Of Life Launcher</h1>
+
+		<form id="form" method="POST" action="http://localhost:5000/start">
+			<input name="side" type="number" placeholder="side length of window" />
+			<input name="rows" type="number" placeholder="number of rows" />
+			<input type="submit" style="display: none" class="submit" />
+		</form>
+
+		<section>
+			<h2>controls</h2>
+			<ul>
+				<li>LMB: draw</li>
+				<li>RMB: erase</li>
+				<li>C: clear screen</li>
+				<li>space: pause/play</li>
+				<li>right: step</li>
+				<li>up: increase speed</li>
+				<li>down: decrease speed (0 is infinite)</li>
+				<li>1-9: toggle themes</li>
+				<li>B: toggle borders (faster without borders)</li>
+			</ul>
+		</section>
+	</body>
+</html>
