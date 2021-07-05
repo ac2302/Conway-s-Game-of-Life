@@ -187,7 +187,7 @@ def start(side, rows, tps, has_border):
                     move(grid)
                 elif event.key == pygame.K_UP:
                     tps += 1
-                elif (event.key == pygame.K_DOWN) and (tps > 1):
+                elif (event.key == pygame.K_DOWN) and (tps > 0):
                     tps -= 1
 
         # moves
