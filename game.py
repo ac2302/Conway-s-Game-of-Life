@@ -172,6 +172,8 @@ def start(side, rows, tps, has_border=False):
                     grid = new_grid(rows)
                     pygame.display.set_caption(
                         "Conway's Game of Life - (Stopped)")
+                elif (event.key == pygame.K_RIGHT) and not simulating:
+                    move(grid)
 
         # moves
         if simulating:
