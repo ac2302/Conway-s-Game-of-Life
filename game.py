@@ -174,6 +174,10 @@ def start(side, rows, tps, has_border=False):
                         "Conway's Game of Life - (Stopped)")
                 elif (event.key == pygame.K_RIGHT) and not simulating:
                     move(grid)
+                elif event.key == pygame.K_UP:
+                    tps += 1
+                elif (event.key == pygame.K_DOWN) and (tps > 1):
+                    tps -= 1
 
         # moves
         if simulating:
