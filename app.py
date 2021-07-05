@@ -1,8 +1,18 @@
-from flask import Flask
+from flask import Flask, request
+from flask.json import jsonify
+
+import game
+
 
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/solve", methods=['POST'])
 def hello_world():
-    return "<p>Hello, World!</p>"
+    try:
+        side = int(request.form['side'])
+        rows = int(request.form['rows'])
+        game.start(side=side, rows=rows)
+        return jsonify({"message": "ok"})
+    except:
+        return jsonify({"message": "error"})

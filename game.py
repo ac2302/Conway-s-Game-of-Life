@@ -1,7 +1,5 @@
 import pygame
 
-pygame.init()
-
 
 themes = {
     "nokia": {
@@ -135,6 +133,8 @@ def draw(win, side, rows, has_border, grid):
 
 
 def start(side, rows, tps=5, has_border="true", default_theme="nokia"):
+    pygame.init()
+
     global colors
 
     win = pygame.display.set_mode((side, side))
