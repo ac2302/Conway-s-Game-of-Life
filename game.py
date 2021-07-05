@@ -7,10 +7,40 @@ themes = {
         'bg': (50, 100, 50),
         'bo': (50, 100, 50)
     },
-    "graph": {
+    "nokia-grid": {
+        'fg': (0, 0, 0),
+        'bg': (50, 100, 50),
+        'bo': (0, 0, 0)
+    },
+    "simple": {
+        'fg': (0, 0, 0),
+        'bg': (255, 255, 255),
+        'bo': (255, 255, 255)
+    },
+    "simple-grid": {
         'fg': (0, 0, 0),
         'bg': (255, 255, 255),
         'bo': (0, 0, 0)
+    },
+    "royal": {
+        'fg': (25, 100, 126),
+        'bg': (31, 39, 27),
+        'bo': (31, 39, 27)
+    },
+    "royal-inverted": {
+        'fg': (31, 39, 27),
+        'bg': (25, 100, 126),
+        'bo': (25, 100, 126)
+    },
+    "fresh": {
+        'fg': (255, 166, 48),
+        'bg': (215, 232, 186),
+        'bo': (215, 232, 186)
+    },
+    "fresh-inverted": {
+        'fg': (215, 232, 186),
+        'bg': (255, 166, 48),
+        'bo': (255, 166, 48)
     }
 }
 
@@ -198,10 +228,24 @@ def start(side, rows, tps=5, has_border="true", default_theme="nokia"):
                     title_running = "(Stopped)"
                     pygame.display.set_caption(
                         title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
+
                 elif event.key == pygame.K_1:
                     colors = themes['nokia']
                 elif event.key == pygame.K_2:
-                    colors = themes['graph']
+                    colors = themes['nokia-grid']
+                elif event.key == pygame.K_3:
+                    colors = themes['simple']
+                elif event.key == pygame.K_4:
+                    colors = themes['simple-grid']
+                elif event.key == pygame.K_5:
+                    colors = themes['royal']
+                elif event.key == pygame.K_6:
+                    colors = themes['royal-inverted']
+                elif event.key == pygame.K_7:
+                    colors = themes['fresh']
+                elif event.key == pygame.K_8:
+                    colors = themes['fresh-inverted']
+
                 elif event.key == pygame.K_b:
                     has_border = not has_border
                 elif (event.key == pygame.K_RIGHT) and not simulating:
