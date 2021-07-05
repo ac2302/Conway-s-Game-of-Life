@@ -1,4 +1,5 @@
 # Conway-s-Game-of-Life
+
 conway's game of life made in python
 
 ## Installation
@@ -13,15 +14,21 @@ pip install flask
 ## Usage
 
 open command line in the folder containing the app.py and game.py files. Then run main.py
+
 ```
 flask run
 ```
-if that dosen't work, try 
+
+if that dosen't work, try
+
 ```
 python -m flask run
 ```
 
+then to open the launcher, go to http://localhost:5000
+
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
