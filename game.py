@@ -32,7 +32,6 @@ def get_clicked_pos(pos, rows, width):
 def move(grid):
     kills = set()
     births = set()
-    # print('moving')
 
     def get_neighbors(xv, yv):
         nhb = 0
@@ -41,6 +40,19 @@ def move(grid):
             for j in range(3):
                 a1 = (xv - 1) + i
                 a2 = (yv - 1) + j
+
+                if (a1, a2) in [(-1, -1), (len(grid), -1), (-1, len(grid)), (len(grid), len(grid))]:
+                    pass
+
+                if a1 < 0:
+                    a1 = len(grid)-1
+                if a1 >= len(grid):
+                    a1 = 0
+
+                if a2 < 0:
+                    a2 = len(grid)-1
+                if a2 >= len(grid):
+                    a2 = 0
 
                 if -1 < a1 < len(grid) and -1 < a2 < len(grid):
                     if grid[a1][a2]:
@@ -97,13 +109,15 @@ def draw(win, side, rows, has_border, grid):
     for x in range(len(grid)):
         for y in range(len(grid)):
             if grid[x][y]:
-                pygame.draw.rect(win, colors.get('fg'), (x * gap, y * gap, gap, gap))
+                pygame.draw.rect(win, colors.get(
+                    'fg'), (x * gap, y * gap, gap, gap))
 
     # grid
     for i in range(rows):
         pygame.draw.line(win, colors.get('bo'), (0, i * gap), (side, i * gap))
         for j in range(rows):
-            pygame.draw.line(win, colors.get('bo'), (j * gap, 0), (j * gap, side))
+            pygame.draw.line(win, colors.get(
+                'bo'), (j * gap, 0), (j * gap, side))
 
     # update
     pygame.display.update()
@@ -146,15 +160,18 @@ def start(side, rows, tps, has_border=False):
                 if event.key == pygame.K_SPACE:
                     if simulating:
                         simulating = False
-                        pygame.display.set_caption("Conway's Game of Life - (Paused)")
+                        pygame.display.set_caption(
+                            "Conway's Game of Life - (Paused)")
                     else:
                         simulating = True
-                        pygame.display.set_caption("Conway's Game of Life - (Running)")
+                        pygame.display.set_caption(
+                            "Conway's Game of Life - (Running)")
 
                 if event.key == pygame.K_c:
                     simulating = False
                     grid = new_grid(rows)
-                    pygame.display.set_caption("Conway's Game of Life - (Stopped)")
+                    pygame.display.set_caption(
+                        "Conway's Game of Life - (Stopped)")
 
         # moves
         if simulating:
