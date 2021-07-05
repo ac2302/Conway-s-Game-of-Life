@@ -135,6 +135,8 @@ def draw(win, side, rows, has_border, grid):
 
 
 def start(side, rows, tps, has_border):
+    global colors
+
     win = pygame.display.set_mode((side, side))
     title = "Conway's Game of Life"
     title_running = ""
@@ -196,6 +198,10 @@ def start(side, rows, tps, has_border):
                     title_running = "(Stopped)"
                     pygame.display.set_caption(
                         title + ' ' + title_running + ' ' + f"({tps if (tps != 0) else 'infinite'} TPS)")
+                elif event.key == pygame.K_1:
+                    colors = themes['nokia']
+                elif event.key == pygame.K_2:
+                    colors = themes['graph']
                 elif event.key == pygame.K_b:
                     has_border = not has_border
                 elif (event.key == pygame.K_RIGHT) and not simulating:
