@@ -7,19 +7,18 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
 pip install pygame
+pip install flask
 ```
 
 ## Usage
 
-open command line in the folder containing the main.py and game.py files. Then run main.py
+open command line in the folder containing the app.py and game.py files. Then run main.py
 ```
-python main.py
+flask run
 ```
-
-You can change the window size, grid size and the tps in the main.py file
-```python
-if __name__ == '__main__':
-    game.start(side=500, rows=50, has_border=True, tps=5)
+if that dosen't work, try 
+```
+python -m flask run
 ```
 
 ## Contributing
