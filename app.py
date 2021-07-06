@@ -1,5 +1,8 @@
+from logging import debug
 from flask import Flask, request, render_template
 from flask.json import jsonify
+import webview
+import threading
 
 import game
 
@@ -21,3 +24,12 @@ def start():
         return render_template("index.html")
     except:
         return jsonify({"message": "error"})
+
+
+if __name__ == '__main__':
+    # starting the flask app
+    threading.Thread(target=app.run).start()
+    # rendering the webview
+    webview.create_window("conway's Game Of Life Launcher",
+                          "http://localhost:5000")
+    webview.start()
