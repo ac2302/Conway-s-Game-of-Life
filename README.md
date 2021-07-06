@@ -9,23 +9,18 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 ```bash
 pip install pygame
 pip install flask
+pip install pywebview
 ```
 
 ## Usage
 
-open command line in the folder containing the app.py and game.py files. Then run main.py
+open command line in the folder containing the app.py and game.py files. Then run app.py
 
-```
-flask run
-```
-
-if that dosen't work, try
-
-```
-python -m flask run
+``` bash
+python app.py
 ```
 
-then to open the launcher, go to http://localhost:5000
+it will automatically start a flask server and spawn a webview for launcher
 
 ## Contributing
 
